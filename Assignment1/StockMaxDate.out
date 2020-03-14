@@ -1,0 +1,101 @@
+[cloudera@quickstart src]$ hadoop jar StockMaxDate.jar StockMaxDate /InputFiles/NYSE.csv /OutputFiles/StockMaxDate
+20/03/14 15:21:28 INFO client.RMProxy: Connecting to ResourceManager at /0.0.0.0:8032
+20/03/14 15:21:28 WARN mapreduce.JobResourceUploader: Hadoop command-line option parsing not performed. Implement the Tool interface and execute your application with ToolRunner to remedy this.
+20/03/14 15:21:29 INFO input.FileInputFormat: Total input paths to process : 1
+20/03/14 15:21:29 WARN hdfs.DFSClient: Caught exception 
+java.lang.InterruptedException
+	at java.lang.Object.wait(Native Method)
+	at java.lang.Thread.join(Thread.java:1281)
+	at java.lang.Thread.join(Thread.java:1355)
+	at org.apache.hadoop.hdfs.DFSOutputStream$DataStreamer.closeResponder(DFSOutputStream.java:967)
+	at org.apache.hadoop.hdfs.DFSOutputStream$DataStreamer.endBlock(DFSOutputStream.java:705)
+	at org.apache.hadoop.hdfs.DFSOutputStream$DataStreamer.run(DFSOutputStream.java:894)
+20/03/14 15:21:29 WARN hdfs.DFSClient: Caught exception 
+java.lang.InterruptedException
+	at java.lang.Object.wait(Native Method)
+	at java.lang.Thread.join(Thread.java:1281)
+	at java.lang.Thread.join(Thread.java:1355)
+	at org.apache.hadoop.hdfs.DFSOutputStream$DataStreamer.closeResponder(DFSOutputStream.java:967)
+	at org.apache.hadoop.hdfs.DFSOutputStream$DataStreamer.endBlock(DFSOutputStream.java:705)
+	at org.apache.hadoop.hdfs.DFSOutputStream$DataStreamer.run(DFSOutputStream.java:894)
+20/03/14 15:21:29 INFO mapreduce.JobSubmitter: number of splits:1
+20/03/14 15:21:30 INFO mapreduce.JobSubmitter: Submitting tokens for job: job_1581487397453_0135
+20/03/14 15:21:30 INFO impl.YarnClientImpl: Submitted application application_1581487397453_0135
+20/03/14 15:21:30 INFO mapreduce.Job: The url to track the job: http://quickstart.cloudera:8088/proxy/application_1581487397453_0135/
+20/03/14 15:21:30 INFO mapreduce.Job: Running job: job_1581487397453_0135
+20/03/14 15:21:45 INFO mapreduce.Job: Job job_1581487397453_0135 running in uber mode : false
+20/03/14 15:21:45 INFO mapreduce.Job:  map 0% reduce 0%
+20/03/14 15:22:03 INFO mapreduce.Job:  map 100% reduce 0%
+20/03/14 15:22:22 INFO mapreduce.Job:  map 100% reduce 100%
+20/03/14 15:22:22 INFO mapreduce.Job: Job job_1581487397453_0135 completed successfully
+20/03/14 15:22:22 INFO mapreduce.Job: Counters: 49
+	File System Counters
+		FILE: Number of bytes read=17507687
+		FILE: Number of bytes written=35302331
+		FILE: Number of read operations=0
+		FILE: Number of large read operations=0
+		FILE: Number of write operations=0
+		HDFS: Number of bytes read=40990978
+		HDFS: Number of bytes written=4231
+		HDFS: Number of read operations=6
+		HDFS: Number of large read operations=0
+		HDFS: Number of write operations=2
+	Job Counters 
+		Launched map tasks=1
+		Launched reduce tasks=1
+		Data-local map tasks=1
+		Total time spent by all maps in occupied slots (ms)=15250
+		Total time spent by all reduces in occupied slots (ms)=15735
+		Total time spent by all map tasks (ms)=15250
+		Total time spent by all reduce tasks (ms)=15735
+		Total vcore-milliseconds taken by all map tasks=15250
+		Total vcore-milliseconds taken by all reduce tasks=15735
+		Total megabyte-milliseconds taken by all map tasks=15616000
+		Total megabyte-milliseconds taken by all reduce tasks=16112640
+	Map-Reduce Framework
+		Map input records=735026
+		Map output records=735026
+		Map output bytes=16037629
+		Map output materialized bytes=17507687
+		Input split bytes=116
+		Combine input records=0
+		Combine output records=0
+		Reduce input groups=203
+		Reduce shuffle bytes=17507687
+		Reduce input records=735026
+		Reduce output records=203
+		Spilled Records=1470052
+		Shuffled Maps =1
+		Failed Shuffles=0
+		Merged Map outputs=1
+		GC time elapsed (ms)=482
+		CPU time spent (ms)=12520
+		Physical memory (bytes) snapshot=376827904
+		Virtual memory (bytes) snapshot=3015938048
+		Total committed heap usage (bytes)=226627584
+	Shuffle Errors
+		BAD_ID=0
+		CONNECTION=0
+		IO_ERROR=0
+		WRONG_LENGTH=0
+		WRONG_MAP=0
+		WRONG_REDUCE=0
+	File Input Format Counters 
+		Bytes Read=40990862
+	File Output Format Counters 
+		Bytes Written=4231
+[cloudera@quickstart src]$ hdfs dfs -ls /OutputFiles/StockMaxDate
+Found 2 items
+-rw-r--r--   1 cloudera supergroup          0 2020-03-14 15:22 /OutputFiles/StockMaxDate/_SUCCESS
+-rw-r--r--   1 cloudera supergroup       4231 2020-03-14 15:22 /OutputFiles/StockMaxDate/part-r-00000
+[cloudera@quickstart src]$ hdfs dfs -cat /OutputFiles/StockMaxDate/part-r-00000 | head
+AA	94.62 1966-04-26
+AAI	57.88 1995-11-03
+AAN	35.21 2009-05-06
+AAP	83.65 2003-12-03
+AAR	25.25 2001-08-08
+AAV	24.78 2005-12-02
+AB	94.94 2007-04-23
+ABA	27.94 2009-01-27
+ABB	33.39 2008-05-19
+ABC	84.35 2005-12-28
