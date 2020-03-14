@@ -34,9 +34,23 @@ NYSE,AEA,2010-01-26,5.18,5.18,4.81,4.84,554800,4.84
 ```
 
 ***Problem Statement 1*** : Find the average stock price with each stock.
+**Output** :
+```
+[cloudera@quickstart src]$ hdfs dfs -cat /OutputFiles/AllTimeAvg/part-r-00000 | head
+AA	51.91159715913803
+AAI	10.268777015001355
+AAN	19.548878615457568
+AAP	44.167920310981586
+AAR	18.982074468085067
+AAV	12.323024390243903
+AB	30.259244767970902
+ABA	25.813885209713032
+ABB	12.447982890589811
+ABC	47.1888748995449
+```
 
 ***Problem Statement 2*** : Find the maximum stock price of each stock with the corresponding date and maximum price.
+**Output** :
+```
 
-
-
-
+```
