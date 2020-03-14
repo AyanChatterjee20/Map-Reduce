@@ -52,5 +52,15 @@ ABC	47.1888748995449
 ***Problem Statement 2*** : Find the maximum stock price of each stock with the corresponding date and maximum price.
 **Output** :
 ```
-
+[cloudera@quickstart src]$ hdfs dfs -cat /OutputFiles/StockMaxDate/part-r-00000 | head
+AA	94.62 1966-04-26
+AAI	57.88 1995-11-03
+AAN	35.21 2009-05-06
+AAP	83.65 2003-12-03
+AAR	25.25 2001-08-08
+AAV	24.78 2005-12-02
+AB	94.94 2007-04-23
+ABA	27.94 2009-01-27
+ABB	33.39 2008-05-19
+ABC	84.35 2005-12-28
 ```
